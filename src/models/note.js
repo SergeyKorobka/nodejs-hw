@@ -1,4 +1,4 @@
-import { Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import { model } from 'mongoose';
 import { TAGS } from '../constants/tags.js';
 
@@ -18,6 +18,11 @@ const noteSchema = new Schema(
       type: String,
       enum: TAGS,
       default: 'Todo',
+    },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
     },
   },
   {
