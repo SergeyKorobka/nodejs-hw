@@ -22,8 +22,8 @@ export const getAllNotes = async (req, res) => {
   ]);
 
   const totalPages = Math.ceil(totalNotes / perPage);
-
-  res.status(200).json({ page, perPage, totalNotes, totalPages, notes: notes });
+  console.log(page);
+  res.status(200).json({ page, perPage, totalNotes, totalPages, notes });
 };
 
 export const getNoteById = async (req, res) => {
