@@ -17,3 +17,17 @@ export const updateUserAvatar = async (req, res) => {
 
   res.status(200).json({ url: user.avatar });
 };
+
+export const updateUser = async (req, res) => {
+  const { name } = req.body;
+  const updatedUser = await User.findByIdAndUpdate(
+    req.user._id,
+    { username: name },
+    { returnDocument: 'after' },
+  );
+
+  res.status(200).json(updatedUser);
+};
+export const getUser = async (req, res) => {
+  res.status(200).json(req.user);
+};
